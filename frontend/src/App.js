@@ -36,7 +36,7 @@ function App() {
   };
 
   // Filter tasks based on the selected filter
-  const filteredTasks = todolist.filter(task => {
+  const filteredTasks = (todolist||[]).filter(task => {
     if (filter === 'completed') return task.isComplete;
     if (filter === 'unfinished') return !task.isComplete;
     return true; // 'all' filter shows all tasks
