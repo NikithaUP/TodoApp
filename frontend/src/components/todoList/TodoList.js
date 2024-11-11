@@ -8,7 +8,7 @@ import axios from 'axios';
 function TodoList(props) {
   const todolist = props.todolist.map((task, index) => {
     const taskComplete = task => {
-      axios.put(`http://localhost:8000/api/tasks/${task._id}`, {
+      axios.put(`${process.env.BASE_URL}/api/tasks/${task._id}`, {
         _id: task._id,
         todo: task.todo,
         isComplete: !task.isComplete
@@ -16,7 +16,7 @@ function TodoList(props) {
     };
 
     const removeTask = id => {
-      axios.delete(`http://localhost:8000/api/tasks/${id}`)
+      axios.delete(`${process.env.BASE_URL}/api/tasks/${id}`)
         .then(res => props.removeTask(res.data))
         .catch(err => console.log(err));
     };

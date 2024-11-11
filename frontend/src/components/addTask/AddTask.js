@@ -8,7 +8,7 @@ function AddTask(props) {
         if (task.trim()==='') {
             return
         } else {
-            axios.post('http://localhost:8000/api/tasks', {
+            axios.post(`${process.env.BASE_URL}/api/tasks`, {
                 todo: task,
                 isComplete:false
             }).then(res => {
